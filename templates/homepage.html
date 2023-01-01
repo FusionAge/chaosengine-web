@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon32.png')}}" type="image/png" />
+	<!-- loader-->
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link href="{{ url_for('static', filename='css/bootstrap-extended.css')}}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/app.css')}}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/icons.css')}}" rel="stylesheet">
+	
+	<title>ChaosEngine by GenXWhatever</title>
+</head>
+
+<body class="chaosengine-theme">
+	<!--wrapper-->
+	<div class="wrapper">
+		
+		<!--Bootstrap, you suck for making me do this--><br/><br/>
+		<div class="container gy-5">
+			<div class="row row-cols-1 row-cols-lg-2">
+				<div class="col d-flex">
+					<div class="w-100 text-center">
+						<img src="{{ url_for('static', filename='images/chaosengine.png')}}" class="img-fluid">
+					</div>
+				</div>
+				<div class="col d-flex">
+					<div class="card radius-10 w-100">
+						<div class="card-body">
+							<div class="border p-4 rounded">
+								<h4>Discord Bot for Diablo:Immortal Clans</h4>
+								<hr/>
+								<h5>Features:</h5>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Uses Discord-recommended slash commands</span>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Simple setup (just use <code>/start</code> and fill in Clan Name & Battle.net Server)</span>
+									</li>
+									<li class="list-group-item d-flex flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Users add themselves via <code>/register</code> with their Class & Character Name</span>
+									</li>
+									<li class="list-group-item d-flex flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Store Paragon Level, Combat Rating, Damage, Life, and Resonance</span>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Easy-to-use tool to update info via webpage (use <code>/tool</code>)</span>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Manage Set Items (equipped and inventory)</span>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> "Wanted Sets" to help you complete your set pieces</span>
+									</li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> View your clan members &amp; their stats/progress</span>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> Lookup set information easily (use <code>/setinfo</code>)</span>
+									</li>
+									<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+										<span class="text-white"><i class="bx bx-chevron-right-circle"></i> ...to get started, click the big-ass button below!</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="container text-center gy-5">
+				<div class="row justify-content-center">
+					<div class="col text-end px-1 d-flex flex-row-reverse align-items-center">
+						<button type="button" class="btn btn-secondary btn-sm m-1" style="width: 8em;" data-bs-toggle="modal" data-bs-target="#modalDocs">Documentation</button>
+						<button type="button" class="btn btn-secondary btn-sm m-1" style="width: 8em;" data-bs-toggle="modal" data-bs-target="#modalAbout">About</button>
+					</div>
+					<div class="col-6 px-1 d-grid gap-2">
+						<a type="button" class="btn btn-warning px-5 btn-lg py-3" href="https://discord.com/api/oauth2/authorize?client_id=1009595862600654928&permissions=395674250304&scope=bot">INVITE BOT TO DISCORD</a>
+					</div>
+					<div class="col text-start px-1 d-flex align-items-center">
+						<button type="button" class="btn btn-secondary btn-sm m-1" style="width: 8em;" data-bs-toggle="modal" data-bs-target="#modalNotes">Release Notes</button>
+						<button type="button" class="btn btn-secondary btn-sm m-1" style="width: 8em;" data-bs-toggle="modal" data-bs-target="#modalRoadmap">Coming Soon</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end wrapper-->
+	<!--Modals-->
+	<!--About Modal-->
+	<div class="modal fade" id="modalAbout" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h6>Who wrote this?</h6>
+					<p>I'm GenXWhatever on Lysander. I play a Barbarian, but not very well. Just a guy who likes programming in his free time.</p>
+					<h6>Why I made this bot...</h6>
+					<p>This Bot was a pet project, namely for me to teach myself Python (I still think Node.js is better, but I admit I'm biased). I also enjoy playing Diablo:Immortal, but found having to track all my sets in a spreadsheet to be a pain in the ass. So here we are.</p>
+					<h6>Talk Nerdy to me</h6>
+					<p>All back-end and middleware is Python. The web piece uses Flask (simplicity) with HTML5 Bootstrap and jQuery, the Discord Bot uses Discord.py, and I store all the data in a MySQL Database. I did ask GPT-3 a lot of questions building this and let's just say I am not worried about AI taking over anytime soon. However, I also used Midjourney to generate the logo and DAMN...look out graphic artists. Midjourney saved me hours of Photoshop time and did a pretty damn good job.</p>
+					<h6>Security</h6>
+					<p>I don't store personal data. The most info I have on you is your Discord ID so in return, here's mine: Varian#7318. Don't spam me and I won't spam you, deal?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Documentation Modal-->
+	<div class="modal fade" id="modalDocs" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">ChaosEngine QuickStart</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h6>Contents</h6>
+					<ul>
+						<li><a href="#hdr_installation">Installation</a></li>
+						<li><a href="#hdr_tips">Recommended Settings</a></li>
+						<li><a href="#hdr_commands">Commands</a></li>
+						<li><a href="#hdr_tool">Set Items Tool</a></li>
+						<li><a href="#hdr_faq">FAQ</a></li>
+					</ul>
+					<h6 id="hdr_installation">Installation</h6>
+						<ol>
+							<li>Click the <b>"INVITE BOT TO DISCORD"</b> button on the homepage</li>
+							<li>The Bot "ChaosEngine" should appear in your channel</li>
+							<li>Type <code>/start</code> to begin (it will assign you as an admin)</li>
+							<li>That's it! ChaosEngine is ready to use</li>
+						</ol>
+					<h6>Recommended Settings</h6>
+					<ol>
+						<li>By default, ChaosEngine listens on every channel it has permission to. This could create quite a bit of noise, so it is recommended that you assign ChaosEngine to its own channel (like <code>#CHAOSENGINE</code>) so that your users don't invoke it in every channel and ChaosEngine pollutes the channel with responses.<br/><b>To limit ChaosEngine to a specific channel:</b></li>
+						<ol>
+							<li>Right-click on ChaosEngine in the Members List</li>
+							<li>Select "Manage Integrations"</li>
+							<li>In the Channels section, Disable "All Channels" (red X")</li>
+							<li>Click the "Add Channels" button</li>
+							<li>Check the box next to the channel you want ChaosEngine to listen to</li>
+							<li>Click the Add Button</li>
+							<li>Click "Save Changes"</li>
+						</ol>
+					</ol>
+					<h6 id="hdr_commands">Commands</h6>
+					<table class="table table-sm">
+						<thead><tr><th>Command</th><th>What it does</th></tr></thead>
+						<tbody>
+							<tr><td><code>/start</code></td><td>Launches a window to add the current discord server(clan) with ChaosEngine. Must specify a Clan Name and Battlenet Server name. Whoever invokes the command becomes an admin</td></tr>
+							<tr><td><code>/register <br/>&nbsp;&nbsp;[Class]<br/>&nbsp;&nbsp;[Name]</code></td><td>Registers the user with ChaosEngine. After typing in the command, users will be prompted to select a class from a list then enter their in-game character name. (This can be changed later)</td></tr>
+							<tr><td><code>/tool</code></td><td>Sends the user a link to a webpage that allows them to update their stats and manage their set items and wanted sets</td></tr>
+							<tr><td><code>/stats <br/>&nbsp;&nbsp;[Paragon]<br/>&nbsp;&nbsp;[Resonance]<br/>&nbsp;&nbsp;[Combat Rating]<br/>&nbsp;&nbsp;[Damage]<br/>&nbsp;&nbsp;[Life]</code></td><td>Allows the user to update their stats (Paragon Level, Resonance, Combat Rating, Damage, and Life). All fields are OPTIONAL and can be chosen from a list (after entering the command you will see the options appear to choose).</tr>
+							<tr><td><code>/paragon <br/>&nbsp;&nbsp;[Paragon]</code></td><td>Allows the user to update ONLY their <b>Paragon Level</b></td></tr>
+							<tr><td><code>/cr<br/>&nbsp;&nbsp;[Combat Rating]</code></td><td>Allows the user to update ONLY their <b>Combat Rating</b></td></tr>
+							<tr><td><code>/reso<br/>&nbsp;&nbsp;[Resonance]</code></td><td>Allows the user to update ONLY their <b>Resonance</b></td></tr>
+							<tr><td><code>/damage<br/>&nbsp;&nbsp;[Damage]</code></td><td>Allows the user to update ONLY their <b>Damage</b></td></tr>
+							<tr><td><code>/life<br/>&nbsp;&nbsp;[Life]</code></td><td>Allows the user to update ONLY their <b>Life</b></td></tr>
+							<tr><td><code>/setinfo<br/>&nbsp;&nbsp;[Set Name]<br/>&nbsp;&nbsp;[Slot]</code></td><td>Look up information about a set. Users can OPTIONALLY specify a slot to show information about a particular set item (including the dungeon/area it is dropped)</td></tr>
+							<tr><td><code>/about</code></td><td>Displays basic information about ChaosEngine</td></tr>
+							<tr><td><code>/bugreport</code></td><td>Launches a window that allows any user to submit a bug report or a suggestion. These are NOT sent directly to the Botmaster (but I do read them daily)</td></tr>
+							<tr><td><code>/about</code></td><td>Displays basic information about ChaosEngine</td></tr>
+						</tbody>
+					</table>
+					<h6 id="hdr_tool">Set Items Tool</h6>
+					<b>How to access the tool</b>
+					<p><i>Note: It is recommended to use a desktop browser for the best experience.</i></p>
+					<ul>
+						<li>Use the <code>/tool</code> command in discord</li>
+						<li>You will receive a private message from ChaosEngine with a link to a web page</li>
+						<li>IMPORTANT! Do not share your link or someone else can change (or delete) your data</li>
+						<li>When clicking the link you will first see your stats, which is editable</li>
+						<li>A tab/link for "My Sets" is where the Set Item tool is found</li>
+					</ul>
+					<p>There are three sections to the "My Sets" feature: Wanted Sets, Equipped Items, and Inventory Items.</p>
+					<b>"Wanted Sets"</b>
+					<p>This is the list of sets you are looking to obtain. To add a Set you want, select a set from the drop-down and add it.</p>
+					<p>ChaosEngine will track your set items against this set, telling you how many items you have belonging to this set IN TOTAL as well as COMPLETION (having at least one set item each slot).</p>
+					<p>You can also see what dungeon(s) to farm in order to get the set items needed to complete the set. When the item drops for you, add it to your inventory and/or equipped items.</p>
+					<p>Clicking the information icon will tell you about the set bonuses.</p>
+					<b>"Equipped Items"</b>
+					<p>This is the list of set items you have equipped. In the "Set" column, the green number indicates the number of items from that set you have equipped. To add an item from your inventory to this set, see the "Inventory Items" below.</p>
+					<b>"Inventory Items"</b>
+					<p>Here is where you add your set items, as they drop, as well as replace items in  your Equipped items.</p>
+					<p>Click the Plus button to add a new item to your inventory. Select the set, and the slot, then enter the values for Intelligence/Strength, Vitality, Willpower, Fortitude and click "Add" </p>
+					<p>Click the Checkmark button to add additional filters.</p>
+					<p>Click the Question mark button to show a help dialog</p>
+					<p>To add an item from inventory to equipped items, click the square-plus button to the left of the item. This will replace the item for that slot in the Equipped items, and move the old equipped item back to inventory.</p>
+					<p>To delete an item from inventory, click the trashcan icon to the left of the item</p>
+					<p>You can search and sort the list of inventory items. It searches ALL fields, and yes, you can multi-sort. Hold down shift while clicking on the up/down arrows in the header column. (I have no idea how to do this on mobile, sorry)</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Release Notes Modal-->
+	<div class="modal fade" id="modalNotes" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Release Notes</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>If you're reading this -- I made it to Beta. Thanks for trying it out and I hope it's at least <i>somewhat</i> useful.</p>
+					<p>I don't have any release notes yet because, well, I just released it. Basically, the documentation is the release notes. I'll update this as I make changes/additions, please use the <code>/bugreport</code> command to send me suggestions!</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Coming Soon Modal-->
+	<div class="modal fade" id="modalRoadmap" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Coming Soon</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<ul class="list-group">
+						<li class="list-group-item">Show the Top 10 Clan members by each stat</li>
+						<li class="list-group-item">Remove Members from Clan</li>
+						<li class="list-group-item">"Migrate" your data to another discord server</li>
+						<li class="list-group-item">Statistics Tracking (gains per week/month)</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<!--plugins-->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='plugins/simplebar/js/simplebar.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='plugins/metismenu/js/metisMenu.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
+	<!--app JS-->
+	<script src="{{ url_for('static', filename='js/app.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon32.png')}}" type="image/png" />
+	<!--plugins-->
+	<link href="{{ url_for('static', filename='plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='plugins/datatable/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" />
+	<link href="{{ url_for('static', filename='plugins/notifications/css/lobibox.min.css')}}" rel="stylesheet"/>
+	<!-- loader-->
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/bootstrap-extended.css')}}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/app.css')}}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/icons.css')}}" rel="stylesheet">
+	
+	<title>Work, fucker</title>
+</head>
+
+<body class="chaosengine-theme">
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--start header -->
+		<header>
+			<div class="topbar d-flex align-items-center">
+				<nav class="navbar navbar-expand">
+					<div class="topbar-logo-header">
+						<div class="">
+							<img src="{{ url_for('static', filename='images/header_img.png')}}" alt="logo icon">
+						</div>
+					</div>
+					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i></div>
+					<!--Spacer for Header-->
+                    <div class="search-bar flex-grow-1"></div>
+
+					<div class="user-box">
+						<a class="d-flex align-items-center nav-link" href="#" role="button" aria-expanded="false">
+							<img src="https://cdn.discordapp.com/avatars/386200837896011776/4e381a02c13346fc011f6e862acec87a.png" class="user-img" alt="user avatar">
+							<div class="user-info ps-3">
+								<p class="user-name mb-0">GenXWhatever</p>
+								<p class="designattion mb-0">Author</p>
+							</div>
+						</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			<div class="page-content">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+							<!-- Start Tab Nav -->
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#my-stats" role="tab" aria-selected="true">
+                            <div class="d-flex align-items-center">
+                                <div class="tab-icon"><i class="lni lni-user font-18 me-1"></i></div>
+                                <div class="tab-title">My Stats</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" href="#my-sets" role="tab" aria-selected="false" tabindex="-1">
+                            <div class="d-flex align-items-center">
+                                <div class="tab-icon"><i class="lni lni-star font-18 me-1"></i></div>
+                                <div class="tab-title">My Sets</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+							<!--Start Tab Body ()-->
+                <div class="tab-content" id="pills-tabContent">
+								  <!-- General Info Form Input Column-->
+                  <div class="tab-pane fade show active" id="my-stats" role="tabpanel">
+									<form id="frmStats">
+									  <input type="hidden" name="myid" id="frm_myid" value="{{myid}}">
+									<div class="row">
+										<div class="col-md-9">
+											<div class="col-md-12 mb-3">
+												<label for="charname" class="form-label">Character Name</label>
+												<input type="text" class="form-control" id="charname">
+											</div>
+											<div class="col-md-12 mb-3">
+												<label class="form-label">Class</label>
+												<select class="single-select" id="charclass">
+													<option value="1">Barbarian</option>
+													<option value="2">Crusader</option>
+													<option value="3">Demon Hunter</option>
+													<option value="4">Monk</option>
+													<option value="5">Necromancer</option>
+												</select>
+											</div>
+											<div class="col-md-12 mb-3">
+												<label for="clanname" class="form-label">Clan Name</label>
+												<input type="text" class="form-control" id="clanname" disabled>
+											</div>
+											<div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
+												<!--Necklace-->
+												<div class="col">
+													<div class="card setitemcard">
+														<div class="card-body">
+															
+														</div>
+													</div>
+												</div>
+												<!--Ring 1-->
+												<div class="col">
+													<div class="card setitemcard">
+														<div class="card-body">
+															
+														</div>
+													</div>
+												</div>
+												<!--Ring 2-->
+												<div class="col">
+													<div class="card setitemcard">
+														<div class="card-body">
+																											  
+														</div>
+													</div>
+												</div>
+												<!--Gauntlets-->
+												<div class="col">
+													<div class="card setitemcard">
+														<div class="card-body">
+															
+														</div>
+													</div>
+													</div>
+												<!--Belt-->
+												<div class="col">
+													<div class="card setitemcard">
+														<div class="card-body">
+															
+														</div>
+													</div>
+												</div>
+												<!--Boots-->
+												<div class="col">
+													<div class="card setitemcard">
+														<div class="card-body">
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--Stats Form Input Column-->
+                    <div class="col-md-3">
+                      <!--Paragon Level Input-->
+											<div class="mb-3">
+												<label for="plvl" class="form-label">Paragon Level</label>
+												<div class="input-group">
+													<span class="input-group-text">
+														<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+															<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+															<polyline points="7 11 12 6 17 11"></polyline>
+															<polyline points="7 17 12 12 17 17"></polyline>
+														</svg>
+													</span>
+													<input type="text" class="form-control border-start-0" id="myplvl" placeholder="First Name">
+												</div>
+											</div>
+                      <!--Combat Rating Input-->
+											<div class="mb-3">
+												<label for="cr" class="form-label">Combat Rating</label>
+												<div class="input-group">
+													<span class="input-group-text">
+														<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-swords" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+															<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+															<path d="M21 3v5l-11 9l-4 4l-3 -3l4 -4l9 -11z"></path>
+															<path d="M5 13l6 6"></path>
+															<path d="M14.32 17.32l3.68 3.68l3 -3l-3.365 -3.365"></path>
+															<path d="M10 5.5l-2 -2.5h-5v5l3 2.5"></path>
+														</svg>
+													</span>
+													<input type="text" class="form-control" id="mycr" >
+												</div>
+											</div>
+                      <!--Resonance Input-->
+											<div class="mb-3">
+												<label for="reso" class="form-label">Resonance</label>
+												<div class="input-group">
+													<span class="input-group-text">
+														<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-atom-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+															<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+															<circle cx="12" cy="12" r="3"></circle>
+															<line x1="12" y1="21" x2="12" y2="21.01"></line>
+															<line x1="3" y1="9" x2="3" y2="9.01"></line>
+															<line x1="21" y1="9" x2="21" y2="9.01"></line>
+															<path d="M8 20.1a9 9 0 0 1 -5 -7.1"></path>
+															<path d="M16 20.1a9 9 0 0 0 5 -7.1"></path>
+															<path d="M6.2 5a9 9 0 0 1 11.4 0"></path>
+														</svg>
+													</span>
+													<input type="text" class="form-control" id="myreso">
+												</div>
+											</div>
+											<!--Damage Input-->
+                      <div class="mb-3">
+												<label for="dmg" class="form-label">Damage</label>
+												<div class="input-group">
+													<span class="input-group-text">
+														<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flare" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+															<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+															<path d="M12 3l3 6l6 3l-6 3l-3 6l-3 -6l-6 -3l6 -3z"></path>
+														</svg>
+													</span>
+													<input type="text" class="form-control" id="mydmg">
+												</div>
+											</div>
+											<!--Life Input-->
+                      <div class="mb-3">
+												<label for="life" class="form-label">Life</label>
+												<div class="input-group">
+													<span class="input-group-text">
+														<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heartbeat" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+															<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+															<path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572"></path>
+															<path d="M3 13h2l2 3l2 -6l1 3h3"></path>
+														</svg>
+													</span>
+													<input type="text" class="form-control" id="mylife">
+												</div>
+											</div>
+										</div>
+									</div>
+									</form>
+									<div class="row g-3">
+										&nbsp;
+									</div>
+                  <!--Submit Button-->
+									<div class="row">
+										<div class="col-md-12 mb-3 font-22 text-center">								
+											<button type="button" class="btn btn-dark px-1 radius-20" onclick="postStats('{{myid}}')"><i class="bx lni-checkmark-circle mr-1"></i>Update My Info</button>
+										</div>
+									</div>                    
+                </div>
+								<!-- Start "MY SETS" Section-->
+                <div class="tab-pane fade" id="my-sets" role="tabpanel">
+									<div class="row">
+										<div class="col-md-3" id="myWantedSetsCol">
+											<h5>Wanted Sets <button type="button" class="btn btn-success radius-30 p-1 bx bx-message-alt-add gx-1 float-end" data-bs-toggle="modal" data-bs-target="#modalAddWanted"></button></h5>
+                        <!--Repeat Cards Here-->
+																			
+										</div>
+										<div class="col-md-9">
+											<div class="container">
+												<div class="row">
+													<h5>Equipped Items</h5>
+													<table class="table table-sm mb-0 table-dark table-striped" id="equippedsets">
+														<thead>
+															<tr>
+																<th>Action</th>
+																<th>Name</th>
+																<th>Set</th>
+                                <th>Slot</th>
+																<th>{{strintname}}</th>
+																<th>VIT</th>
+																<th>WILL</th>
+																<th>FORT</th>
+																<th>TOTAL</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<br/>
+											<div class="container ">
+												<div class="row  justify-content-between">
+													<div class="col-10">
+														<h5 id="h5InventoryItems">Inventory Items</h5>
+													</div>
+													<div class="col-2 position-relative">
+														<div class="btn-group position-absolute end-0" role="group">
+															<span data-bs-toggle="tooltip" title="Add an Item" data-bs-placement="top" >
+                                <button id="btnAddNewItem" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalNewItem">
+                                  <i class="bx bx-plus-circle"></i>
+  															</button>
+                              </span>
+                              <span data-bs-toggle="tooltip" title="Filter Items data-bs-placement="top">
+                                  <button id="btnAddNewFilter" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalFilters">
+                                    <i class="bx bx-check-circle"></i>
+    															</button>
+                              </span>
+                              <span data-bs-toggle="tooltip" data-bs-placement="top" title="Help" >
+                                <button id="btnShowHelp" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalHelp">
+                                  <i class="bx bx-help-circle"></i>
+  															</button>
+                              </span>
+														</div>
+													</div>										
+												</div>
+												<br/>
+												<div class="row">
+													<div class="table-responsive">
+														<table id="inventory" class="table table-striped table-bordered dataTable" style="width:100%">
+															<thead>
+																<tr>
+																	<th>Action</th>
+																	<th>Name</th>
+																	<th>Set</th>
+																	<th>Slot</th>
+																	<th>{{strintname}}</th>
+																	<th>VIT</th>
+																	<th>WILL</th>
+																	<th>FORT</th>
+																	<th>TOTAL</th>
+																</tr>
+															</thead>
+															<tbody id="mygear">
+																			
+															</tbody>
+														</table>
+													</div>
+												</div>										
+											</div>
+										</div>
+									</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+	<!--end page wrapper -->
+
+  <!--Modals-->
+  <!--New Item-->
+  <div class="modal modal-lg" id="modalNewItem" tabindex="-1" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<h5 class="modal-title">Add a new Set Item</h5>
+  					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  				</div>
+  				<div class="modal-body">
+            <form id="frmNewItem">
+              <div class="row g-3">
+                <div class="col-6">
+                  <label class="form-label">Set</label>
+                  <select class="single-select" id="ni_setid"></select>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">(Slot) Item</label>
+                  <select class="single-select" id="ni_slotid"></select>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-3">
+                  <label class="form-label">{{strintname}}</label>
+                  <input type="number" class="form-control" id="ni_strint">
+                  <div class="invalid-feedback">Only numbers!</div>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">VIT</label>
+                  <input type="number" class="form-control" id="ni_vit">
+                  <div class="invalid-feedback">Only numbers!</div>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">WILL</label>
+                  <input type="number" class="form-control" id="ni_will">
+                  <div class="invalid-feedback">Only numbers!</div>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">FORT</label>
+                  <input type="number" class="form-control" id="ni_fort">
+                  <div class="invalid-feedback">Only numbers!</div>
+                </div>
+              </div>
+              <br/>
+            </form>
+  				</div>
+  				<div class="modal-footer">
+            <button id="subNewItem" type="button" class="btn btn-sm btn-success px-5 align-bottom align-self-end">ADD</button>
+  					<button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+  				</div>
+  			</div>
+  		</div>
+	  </div>
+  <!--Wanted Set Selector-->
+  <div class="modal" id="modalAddWanted" tabindex="-1" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<h5 class="modal-title">Add Set to Wanted Sets</h5>
+  					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  				</div>
+  				<div class="modal-body">
+            <form id="frmNewItem">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label">Set</label>
+                  <select class="single-select" id="ws_setid"></select>
+                </div>
+            </form>
+  				</div>
+  				<div class="modal-footer">
+            <button id="subNewItem" onclick="updWantedSets()" type="button" class="btn btn-sm btn-success px-5 align-bottom align-self-end">ADD</button>
+  					<button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+  				</div>
+  			</div>
+  		</div>
+	  </div>
+	<!-- Bootstrap JS -->
+	<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+	<!--plugins-->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='plugins/simplebar/js/simplebar.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='plugins/metismenu/js/metisMenu.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
+	<script src="{{ url_for('static', filename='plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='plugins/select2/js/select2.min.js')}}"></script>
+	<!--notification js -->
+	<script src="{{ url_for('static', filename='plugins/notifications/js/lobibox.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='plugins/notifications/js/notifications.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='plugins/notifications/js/notification-custom-script.js')}}"></script>
+	<!--app JS-->
+  <script>
+    var myid = '{{myid}}'
+		$('.single-select').select2({
+			theme: 'bootstrap4',
+			width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+			placeholder: $(this).data('placeholder'),
+			allowClear: Boolean($(this).data('allow-clear')),
+		});
+	</script>
+	<script src="{{ url_for('static', filename='js/app.js')}}"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+      getSets();
+			$('[data-bs-toggle="tooltip"]').tooltip();
+			$('#inventory').DataTable({
+        "ajax": {
+          "url": "../api/v1/equipment/{{myid}}",
+          "dataSrc": "",
+          "dataType": "json"
+        },
+        "autoWidth": false,
+        "paging": false,
+        "columnDefs": [
+          { "width": "3%", "targets": 0 },
+          { "width": "40%", "targets": 1 },
+          { "width": "35%", "targets": 2 },
+          { "width": "4%", "targets": 3 },
+          { "width": "4%", "targets": 4 },
+          { "width": "4%", "targets": 5 },
+          { "width": "4%", "targets": 6 },
+          { "width": "4%", "targets": 7 },
+          { "width": "5%", "targets": 8 }
+        ],
+        "columns": [
+          {
+            "data": "equipmentid",
+            "render": function(data,type,row) {
+              return "<div class='btn-group' role='group'><button type='button' class='btn btn-sm btn-light' data-bs-toggle='tooltip' data-bs-placement='top' title='Add to Equipped Items' onclick='equipSetItem("+data+")'><i class='bx bx-add-to-queue me-0'></i></button><button type='button' class='btn btn-sm btn-light' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete this Item' onclick='delSetItem("+data+");'><i class='bx bx-trash me-0'></i></button></div>"
+            }
+          },
+          { "data": "setname" },
+          { "data": "setitemname" },
+          { "data": "slotname" },
+          { "data": "strint" },
+          { "data": "vit" },
+          { "data": "will" },
+          { "data": "fort" },
+          { "data": "itemcr" }
+        ]
+      });
+      
+      $('#equippedsets').DataTable({
+        "ajax": {
+          "url": "../api/v1/equipped/{{myid}}",
+          "dataSrc": "",
+          "dataType": "json"
+        },
+        "autoWidth": false,
+        "paging": false,
+        "searching": false,
+        "columnDefs": [
+          { "width": "3%", "targets": 0 },
+          { "width": "40%", "targets": 1 },
+          { "width": "35%", "targets": 2 },
+          { "width": "4%", "targets": 3 },
+          { "width": "4%", "targets": 4 },
+          { "width": "4%", "targets": 5 },
+          { "width": "4%", "targets": 6 },
+          { "width": "4%", "targets": 7 },
+          { "width": "5%", "targets": 8 }
+        ],
+        "columns": [
+          {
+            "data": "equipmentid",
+            "render": function(data,type,row) {
+              return "<div class='btn-group' role='group'><button type='button' class='btn btn-sm btn-light' data-bs-toggle='tooltip' data-bs-placement='top' title='Delete this Item' onclick='delSetItem("+data+");'><i class='bx bx-trash me-0'></i></button></div>"
+            }
+          },
+          { "data": "setname" },
+          { "data": "setitemname" },
+          { "data": "slotname" },
+          { "data": "strint" },
+          { "data": "vit" },
+          { "data": "will" },
+          { "data": "fort" },
+          { "data": "itemcr" }
+        ]
+      });
+			getStats(myid);
+      getUnwantedSets()
+      getWantedSets(myid)
+		});
+	</script>
+</body>
+</html>
