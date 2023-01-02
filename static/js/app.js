@@ -140,10 +140,10 @@ function addSetItem() {
   $.post('../api/v1/equipment/' + myid,
     {
       setitemid: $("#ni_slotid").val(),
-      strint: $("#ni_strint").val(),
-      vit: $("#ni_vit").val(),
-      will: $("#ni_will").val(),
-      fort: $("#ni_fort").val(),
+      strint:   $("#ni_strint").val().length > 0 ? $("#ni_strint").val() : 0,
+      vit:      $("#ni_vit").val().length > 0 ? $("#ni_vit").val() : 0,
+      will:     $("#ni_will").val().length > 0 ? $("#ni_will").val() : 0,
+      fort:     $("#ni_fort").val().length > 0 ? $("#ni_fort").val() : 0,
       isequipped: 0         
     },
     function(status) {
