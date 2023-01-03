@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import os
+from dotenv import load_dotenv
 #from views import get_stats
 
 #VIEWS
@@ -9,6 +10,7 @@ import os
 
 #UTILITIES
 import urllib.parse
+load_dotenv()
 
 #VARIABLES
 passw = urllib.parse.quote_plus("u90Ws2X$a@7y")
@@ -16,10 +18,10 @@ passw = urllib.parse.quote_plus("u90Ws2X$a@7y")
 app = Flask(__name__)
 
 #app.register_blueprint(views,url_prefix="/")
-app.config['MYSQL_HOST'] = os.environ['DBSERVER']
-app.config['MYSQL_USER'] = os.environ['DBUSER']
-app.config['MYSQL_PASSWORD'] = os.environ['DBPASS']
-app.config['MYSQL_DB'] = os.environ['DBNAME']
+app.config['MYSQL_HOST'] = os.environ['DB_HOST']
+app.config['MYSQL_USER'] = os.environ['DB_USER']
+app.config['MYSQL_PASSWORD'] = os.environ['DB_PASS']
+app.config['MYSQL_DB'] = os.environ['DB_NAME']
 
 mysql = MySQL(app)
 
