@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_from_directory, Response
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import os
+import json
 from dotenv import load_dotenv
 #from views import get_stats
 
@@ -11,9 +12,6 @@ from dotenv import load_dotenv
 #UTILITIES
 import urllib.parse
 load_dotenv()
-
-#VARIABLES
-passw = urllib.parse.quote_plus("u90Ws2X$a@7y")
 
 app = Flask(__name__)
 
@@ -25,10 +23,13 @@ app.config['MYSQL_DB'] = os.environ['DB_NAME']
 
 mysql = MySQL(app)
 
-
 @app.route('/')
 def homepage():
   return render_template("homepage.html")  #CREATE THIS!
+
+@app.route('/paragon_calculator')
+def paracalc():
+  return render_template("paragon.html")
 
 
 @app.route('/favicon.ico')
@@ -37,8 +38,7 @@ def favicon():
                              'favicon.ico',
                              mimetype="image/vnd.microsoft.icon")
 
-
-# REFERENCE Data
+# REFERENCE - Sets
 @app.route(
   '/api/v1/sets/', )
 @app.route('/api/v1/sets/<setid>', methods=['GET'])
@@ -56,7 +56,7 @@ def get_sets(setid=None):
   cursor.close()
   return jsonify(result)
 
-
+# REFERENCE - Set Items
 @app.route(
   '/api/v1/setitems/', )
 @app.route('/api/v1/setitems/<setid>', methods=['GET'])
@@ -74,7 +74,7 @@ def get_setitems(setid=None):
   cursor.close()
   return jsonify(result)
 
-
+#REFERENCE - Slots
 @app.route(
   '/api/v1/slots/', )
 @app.route('/api/v1/slots/<slotid>', methods=['GET'])
@@ -92,7 +92,7 @@ def get_slots(slotid=None):
   cursor.close()
   return jsonify(result)
 
-
+#REFERENCE - Classes
 @app.route(
   '/api/v1/classes/', )
 @app.route('/api/v1/classes/<classid>', methods=['GET'])
@@ -110,7 +110,7 @@ def get_classes(classid=None):
   cursor.close()
   return jsonify(result)
 
-
+#REFERENCE - Dungeons
 @app.route(
   '/api/v1/dungeons/', )
 @app.route('/api/v1/dungeons/<dungeonid>', methods=['GET'])
@@ -128,6 +128,47 @@ def get_dungeons(dungeonid=None):
   cursor.close()
   return jsonify(result)
 
+#REFERENCE - Trees
+@app.route('/api/v1/paragontrees/', methods=['GET'])
+def get_paragontrees():
+  cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+  sql = """
+        SELECT 
+    ref_paragontrees.treeid,
+    ref_paragontrees.treename,
+    ref_paragontrees.treedesc,
+    JSON_ARRAYAGG(
+      JSON_OBJECT(
+        'pitemid', ref_paragonitems.pitemid,
+        'parentid', ref_paragonitems.parentid,
+        'pitemicon', ref_paragonitems.pitemicon,
+        'pitemname', ref_paragonitems.pitemname,
+        'pitemdesc', ref_paragonitems.pitemdesc,
+        'attrname', ref_paragonitems.attrname,
+        'attrmaxvalue', ref_paragonitems.attrmaxval,
+        'posx', ref_paragonitems.posx,
+        'posy', ref_paragonitems.posy,
+        'css_shape', ref_paragonitems.shape,
+        'parentpos', 
+            (SELECT GROUP_CONCAT(CONCAT('cn', ref_paragonitems.posy, ref_paragonitems.posx,'to',parent_items.posy, parent_items.posx) SEPARATOR ',')
+            FROM ref_paragonitems as parent_items
+            WHERE FIND_IN_SET(parent_items.pitemid, ref_paragonitems.parentid))
+      )
+    ) as items
+    FROM ref_paragontrees 
+    JOIN ref_paragonitems
+    ON ref_paragontrees.treeid = ref_paragonitems.treeid
+    GROUP BY ref_paragontrees.treeid
+    ORDER BY ref_paragonitems.treeid,ref_paragonitems.posy, ref_paragonitems.posx
+
+  """
+  cursor.execute(sql)
+  result = cursor.fetchall()
+  cursor.close()
+  for row in result:
+      items_json = json.loads(row["items"])
+      row["items"] = items_json
+  return jsonify(result)
 
 #USER Equipment Data (GET/POST)
 @app.route('/api/v1/equipment/<myid>', methods=['GET', 'POST'])
@@ -165,7 +206,6 @@ def get_equipment(myid, equipment_id=None):
     return 'success'
   else:
     return False
-
 
 #USER Equipment Data (GET/POST) --COMBINE WITH ABOVE!
 @app.route('/api/v1/equipped/<myid>', methods=['GET'])
@@ -207,7 +247,6 @@ def del_equipment(myid, equipmentid=None):
   else:
     return False
 
-
 #USER Equipment Data (Equip new item)
 @app.route('/api/v1/equip/<myid>/<equipmentid>', methods=['POST'])
 def upd_equipped(myid, equipmentid=None):
@@ -221,7 +260,6 @@ def upd_equipped(myid, equipmentid=None):
     return 'success'
   else:
     return False
-
 
 #USER Unwanted Sets
 @app.route('/api/v1/unwantedsets/<myid>', methods=['GET'])
@@ -295,7 +333,7 @@ def show_mystats(myid):
   cursor.close()
   return render_template("layout.html", myid=myid, strintname=strintname)
 
-
+#USER - Basic Stats (GET/POST)
 @app.route('/api/v1/stats/<myid>', methods=['GET', 'POST'])
 def get_stats(myid):
   cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)

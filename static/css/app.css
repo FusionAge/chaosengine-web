@@ -5,6 +5,104 @@ body {
 	overflow-x: hidden
 }
 
+.bg-off,.bg-cur,.bg-max {
+	width: 90px;
+	height: 90px;
+	background-size: 90px 90px;
+  }
+  .bg-off {
+	-webkit-border: 2px solid #b71c1c;
+	-moz-border:  2px solid #b71c1c;
+	border:  2px solid #b71c1c;
+  }
+  
+  .bg-cur {
+	-webkit-border: 2px solid #ffd54f;
+	-moz-border:  2px solid #ffd54f;
+	border:  2px solid #ffd54f;
+	-webkit-box-shadow: inset 0 0 7px 3px #ffd54f;
+	-moz-box-shadow: inset 0 0 7px 3px #ffd54f;
+	box-shadow: inset 0 0 7px 3px #ffd54f;
+  }
+  
+  .bg-max {
+	-webkit-border: 2px solid #8bc34a;
+	-moz-border:  2px solid #8bc34a;
+	border:  2px solid #8bc34a;
+	-webkit-box-shadow: inset 0 0 7px 3px #8bc34a;
+	-moz-box-shadow: inset 0 0 7px 3px #8bc34a;
+	box-shadow: inset 0 0 7px 3px #8bc34a;
+  }
+
+.mt-n1 {
+	margin-top: -1.7rem !important;
+}
+
+.paragon_box {
+	display: inline-block;
+	margin-left: none;
+	margin-right: 50px;
+	margin-bottom: 50px;
+	width: 100px;
+}
+
+
+.app-container {
+	display: inline-block;
+	margin-left: 50px;
+	margin-top: 80px;
+	width: 1100px;
+}
+
+.item-container {
+	display: inline-block;
+	width: 790px;
+}
+
+.stat-container {
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+}
+/* Connector Stuff since Boostrap CSS Sucks */
+.cn-none {border: none; background-color: none;}
+.cn-off {border: 5px solid #522a1f;}
+.cn-cur {border: 5px solid #ffd64f94;}
+.cn-max {border: 5px solid #8bc34a94;}
+
+.cnrow {
+	padding-top: 0px;
+	margin: none;
+}
+.cnrow:first-of-type {
+	padding-top: 37px;
+}
+.cn_hbox {
+	display: inline-block;
+	margin-top: none;
+	margin-left: none;
+	margin-right: 2px;
+	width: 150px;
+	height:15px;
+}
+
+.cn_hbox:first-of-type {
+	margin-left:60px;
+}
+
+.cn_vbox {
+	display: inline-block;
+	margin-top: none;
+	margin-left: none;
+	margin-right: 125px;
+	width: 20px;
+	height:155px;
+}
+
+.cn_vbox:first-of-type {
+	margin-left: 55px;
+}
+
 .modal-title {
 color: #EB6534
 }
@@ -26,8 +124,24 @@ a {
 }
 
 
+/*Fixes Tabs so they don't wrap*/
+.nav {
+	--bs-nav-link-padding-x: 0.6rem;
+}
+
+.nav-link {
+	font-size: 13px;
+}
+
 .logo-icon {
 	width: 30px
+}
+
+.badge-calc {
+	position: absolute;
+	right: -20px;
+	top: 10px;
+	text-align: center;
 }
 
 /* Fix Stupid Number Form */
@@ -468,22 +582,6 @@ input[type=number] {
 
 }
 
-@media (min-width: 992px) {
-
-	.product-grid .card:hover {
-
-		margin-top: -.25rem;
-
-		margin-bottom: .25rem;
-
-		-webkit-box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .3);
-
-		box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .3)
-
-	}
-
-}
-
 .back-to-top {
 
 	display: none;
@@ -732,23 +830,6 @@ input[type=number] {
 
 }
 
-@media (min-width: 992px) {
-
-	.product-list .row:hover {
-
-		background-color: rgb(255 255 255 / 25%);
-
-		margin-top: -.25rem;
-
-		margin-bottom: .25rem;
-
-		-webkit-box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .2);
-
-		box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, .2)
-
-	}
-
-}
 
 .recent-product-img {
 
@@ -986,25 +1067,6 @@ input[type=number] {
 
 }
 
-@media (min-width: 992px) {
-
-	.customers-list .customers-list-item:hover {
-
-		background-color: rgb(255 255 255 / 15%);
-
-		border-radius: 10px;
-
-		margin-top: -.25rem;
-
-		margin-bottom: .25rem;
-
-		-webkit-box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .2);
-
-		box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, .2)
-
-	}
-
-}
 
 .right-15 {
 
@@ -2806,21 +2868,6 @@ input[type=number] {
 
 }
 
-@media (min-width: 992px) {
-
-	.pricing-table .card:hover {
-
-		margin-top: -.25rem;
-
-		margin-bottom: .25rem;
-
-		-webkit-box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .3);
-
-		box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .3)
-
-	}
-
-}
 
 .pricing-table .card .card-title {
 
