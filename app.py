@@ -160,7 +160,6 @@ def get_paragontrees():
     ON ref_paragontrees.treeid = ref_paragonitems.treeid
     GROUP BY ref_paragontrees.treeid
     ORDER BY ref_paragonitems.treeid,ref_paragonitems.posy, ref_paragonitems.posx
-
   """
   cursor.execute(sql)
   result = cursor.fetchall()
